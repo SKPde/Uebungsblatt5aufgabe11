@@ -67,15 +67,19 @@ public class ListeL<I extends Comparable<I>> {
 	} // Übungsblatt 5 Aufgabe 13
 
 	public void sort3() { // -------------------------------------->> Insertionssort
-
-		int tempstart = 0;
-		while (tempstart < length() - 2) {
-			for (int x = tempstart; x < length() - 1; x++) {
-
+		
+		int templange = length();
+		
+		for(int x = 0; x < templange-1; x++) {
+			if(get(x).inhalt.compareTo(get(x+1).inhalt) > 0) {
+				versetzeElement(x+1,x);
 			}
-			tempstart++;
 		}
-
+		
+		
+		
+		
+		
 	} // Übungsblatt 5 Aufgabe 14
 
 	public void tauschen(int index1, int index2) { // --------------------------------------->> tauscht zwei
@@ -214,18 +218,18 @@ public class ListeL<I extends Comparable<I>> {
 		l.remove(neun); // Nachfolger von eins l�schen
 		System.out.println(l);
 
-		int test = l.find1(97);
+		/*int test = l.find1(97);
 		if (test > -1) {
 			System.out.println("Der Wert liegt an folgender Stelle: " + test);
 		} else {
 			System.out.println("Nicht verfügbar!");
-		}
+		}*/
 
-		l.sort2();
+		l.sort3();
 		System.out.println(l);
 
-		l.versetzeElement(0, 6);
-		System.out.println(l);
+		//l.versetzeElement(0, 6);
+		//System.out.println(l);
 
 	}
 
