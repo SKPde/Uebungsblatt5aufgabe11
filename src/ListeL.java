@@ -67,24 +67,20 @@ public class ListeL<I extends Comparable<I>> {
 	} // Übungsblatt 5 Aufgabe 13
 
 	public void sort3() { // -------------------------------------->> Insertionssort
-		
+
 		int templange = length();
 		int y = 0;
-		
-		for(int x = 0; x < templange-1; x++) {
-			if(get(x).inhalt.compareTo(get(x+1).inhalt) > 0) {
-				while(get(y).inhalt.compareTo(get(x+1).inhalt) < 0) {
+
+		for (int x = 0; x < templange - 1; x++) {
+			if (get(x).inhalt.compareTo(get(x + 1).inhalt) > 0) {
+				while (get(y).inhalt.compareTo(get(x + 1).inhalt) < 0) {
 					y++;
 				}
-				versetzeElement(x+1,y);
+				versetzeElement(x + 1, y);
 				y = 0;
 			}
 		}
-		
-		
-		
-		
-		
+
 	} // Übungsblatt 5 Aufgabe 14
 
 	public void tauschen(int index1, int index2) { // --------------------------------------->> tauscht zwei
@@ -101,11 +97,11 @@ public class ListeL<I extends Comparable<I>> {
 		ElementL<I> temp1 = get(von);
 		ElementL<I> temp2 = null;
 		if (nach < templange - 1 && von <= nach) {
-			temp2 = get(nach+1);
+			temp2 = get(nach + 1);
 		} else {
 			temp2 = get(nach);
 		}
-		
+
 		// this.insert(temp1.inhalt, get(nach-1));
 		remove(get(von - 1));
 		if (nach > 0) {
@@ -115,7 +111,6 @@ public class ListeL<I extends Comparable<I>> {
 		}
 
 		temp1.next = temp2;
-
 
 	}
 
@@ -217,24 +212,23 @@ public class ListeL<I extends Comparable<I>> {
 		l.insert(4);
 		l.insert(97);
 		l.insert(10);
-		//System.out.println(l);
+		// System.out.println(l);
 		l.insert(5, neun); // nach eins einf�gen
-		//System.out.println(l);
+		// System.out.println(l);
 		l.remove(neun); // Nachfolger von eins l�schen
 		System.out.println(l);
 
-		/*int test = l.find1(97);
-		if (test > -1) {
-			System.out.println("Der Wert liegt an folgender Stelle: " + test);
-		} else {
-			System.out.println("Nicht verfügbar!");
-		}*/
+		/*
+		 * int test = l.find1(97); if (test > -1) {
+		 * System.out.println("Der Wert liegt an folgender Stelle: " + test); } else {
+		 * System.out.println("Nicht verfügbar!"); }
+		 */
 
 		l.sort3();
 		System.out.println(l);
 
-		//l.versetzeElement(0, 6);
-		//System.out.println(l);
+		// l.versetzeElement(0, 6);
+		// System.out.println(l);
 
 	}
 
