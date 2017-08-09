@@ -69,10 +69,15 @@ public class ListeL<I extends Comparable<I>> {
 	public void sort3() { // -------------------------------------->> Insertionssort
 		
 		int templange = length();
+		int y = 0;
 		
 		for(int x = 0; x < templange-1; x++) {
 			if(get(x).inhalt.compareTo(get(x+1).inhalt) > 0) {
-				versetzeElement(x+1,x);
+				while(get(y).inhalt.compareTo(get(x+1).inhalt) < 0) {
+					y++;
+				}
+				versetzeElement(x+1,y);
+				y = 0;
 			}
 		}
 		
