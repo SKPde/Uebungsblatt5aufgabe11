@@ -20,7 +20,8 @@ public class ListeL<I extends Comparable<I>> {
 		head = new ElementL<I>(o);
 	}
 
-	public int find1(I o) {
+	public int find1(I o) { // -------------------->> Eigene Methode zum Aufinden eines Bestimmten Wertes
+							// (Übungsblatt 5 aufgabe 11)
 
 		int ausgabe = -2;
 		ElementL<I> temp = new ElementL<I>(o);
@@ -38,6 +39,30 @@ public class ListeL<I extends Comparable<I>> {
 		}
 
 		return -1;
+	}
+
+	public void sort1() { // ----------------------------------------->> Selectionsort Methode
+							// (Übungsblatt 5 Aufgabe 12)
+
+	}
+
+	public int get(int index) { // ---------------------------->> Gibt Wert an bestimmtem Index
+
+		return -1;
+	}
+
+	public int length() { // ------------------------------->> Gibt Länge des Arrays zurück
+		ElementL<I> temp = null;
+		int count = 0;
+		temp = head;
+		if (temp != null) {
+			count++;
+		}
+		while (temp.next != null) {
+			temp = temp.next;
+			count++;
+		}
+		return count;
 	}
 
 	public ElementL<I> insert(I o) { // am Anfang einf�gen
@@ -99,7 +124,6 @@ public class ListeL<I extends Comparable<I>> {
 		System.out.println(l);
 		l.remove(eins); // Nachfolger von eins l�schen
 		System.out.println(l);
-		
 
 		int test = l.find1(97);
 		if (test > -1) {
@@ -107,6 +131,10 @@ public class ListeL<I extends Comparable<I>> {
 		} else {
 			System.out.println("Nicht verfügbar!");
 		}
+
+		l.sort1();
+		System.out.println(l);
+		System.out.println(l.length());
 	}
 
 }
