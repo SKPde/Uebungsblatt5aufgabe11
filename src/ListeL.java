@@ -46,6 +46,13 @@ public class ListeL<I extends Comparable<I>> {
 
 	}
 	
+	public void tauschen(int index1, int index2) { //--------------------------------------->> tauscht zwei inhaltswerte der Liste
+		ElementL<I> temp1 = new ElementL<I>(get(index1).inhalt);
+		ElementL<I> temp2 = new ElementL<I>(get(index2).inhalt);
+		
+		
+	}
+	
 	public int getMinimum(int von){	// ------------------------------->> gibt Index des Minimalen Wertes
 		ElementL<I> temp = head;
 		int minimum = von;
