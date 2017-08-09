@@ -21,12 +21,22 @@ public class ListeL<I extends Comparable<I>> {
 	}
 
 	public int find1(I o) {
-		
-		if(head.inhalt.compareTo(o) == 0) {
-			return 0;
+
+		int ausgabe = -2;
+		ElementL<I> temp = new ElementL<I>(o);
+		temp = head;
+		int count = 0;
+
+		while (ausgabe == -2) {
+			if (temp.inhalt.compareTo(o) == 0) {
+				return count;
+			} else if (temp.next == null) {
+				return -1;
+			}
+			temp = temp.next;
+			count++;
 		}
-		
-		
+
 		return -1;
 	}
 
@@ -79,13 +89,19 @@ public class ListeL<I extends Comparable<I>> {
 		l.insert(0);
 		ElementL<Integer> eins = l.insert(new Integer(1));
 		l.insert(3);
+		l.insert(45);
+		l.insert(12);
+		l.insert(18);
+		l.insert(97);
+		l.insert(67);
 		System.out.println(l);
 		l.insert(2, eins); // nach eins einf�gen
 		System.out.println(l);
 		l.remove(eins); // Nachfolger von eins l�schen
 		System.out.println(l);
+		
 
-		int test = l.find1(3);
+		int test = l.find1(97);
 		if (test > -1) {
 			System.out.println("Der Wert liegt an folgender Stelle: " + test);
 		} else {
