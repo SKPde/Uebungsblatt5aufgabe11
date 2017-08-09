@@ -46,9 +46,21 @@ public class ListeL<I extends Comparable<I>> {
 
 	}
 
-	public int get(int index) { // ---------------------------->> Gibt Wert an bestimmtem Index
+	public ElementL<I> get(int index) { // ---------------------------->> Gibt Wert an bestimmtem Index
+		ElementL<I> temp = null;
+		temp = head;
+		int count = 0;
+		if (index > length()) {
+			return null;
+		}
+		for (int x = 0; x < length(); x++) {
+			if (x == index) {
+				return temp;
+			}
+			temp = temp.next;
+		}
 
-		return -1;
+		return temp;
 	}
 
 	public int length() { // ------------------------------->> Gibt Länge des Arrays zurück
@@ -135,6 +147,7 @@ public class ListeL<I extends Comparable<I>> {
 		l.sort1();
 		System.out.println(l);
 		System.out.println(l.length());
+		System.out.println(l.get(3).inhalt);
 	}
 
 }
