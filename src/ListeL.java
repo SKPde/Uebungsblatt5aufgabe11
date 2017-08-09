@@ -49,7 +49,8 @@ public class ListeL<I extends Comparable<I>> {
 	public void tauschen(int index1, int index2) { //--------------------------------------->> tauscht zwei inhaltswerte der Liste
 		ElementL<I> temp1 = new ElementL<I>(get(index1).inhalt);
 		ElementL<I> temp2 = new ElementL<I>(get(index2).inhalt);
-		
+		get(index1).inhalt = temp2.inhalt;
+		get(index2).inhalt = temp1.inhalt;
 		
 	}
 	
@@ -169,6 +170,9 @@ public class ListeL<I extends Comparable<I>> {
 		System.out.println(l.length());
 		System.out.println(l.get(3).inhalt);
 		System.out.println(l.getMinimum(0));
+		
+		l.tauschen(2, 6);
+		System.out.println(l);
 	}
 
 }
