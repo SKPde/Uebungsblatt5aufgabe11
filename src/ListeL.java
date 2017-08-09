@@ -65,6 +65,13 @@ public class ListeL<I extends Comparable<I>> {
 		}
 		
 	}					//Übungsblatt 5 Aufgabe 13
+	
+	public void sort3() { //-------------------------------------->> Insertionssort
+		
+		
+		
+		
+	} //Übungsblatt 5 Aufgabe 14
 
 
 	public void tauschen(int index1, int index2) { // --------------------------------------->> tauscht zwei
