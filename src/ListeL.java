@@ -91,8 +91,10 @@ public class ListeL<I extends Comparable<I>> {
 		int templange = length();
 		ElementL<I> temp1 = get(von);
 		ElementL<I> temp2 = null;
-		if (nach < templange - 1) {
+		if (nach < templange - 1 && von <= nach) {
 			temp2 = get(nach+1);
+		} else {
+			temp2 = get(nach);
 		}
 		
 		// this.insert(temp1.inhalt, get(nach-1));
@@ -103,7 +105,7 @@ public class ListeL<I extends Comparable<I>> {
 			head = temp1;
 		}
 
-			temp1.next = temp2;
+		temp1.next = temp2;
 
 
 	}
@@ -206,9 +208,9 @@ public class ListeL<I extends Comparable<I>> {
 		l.insert(4);
 		l.insert(97);
 		l.insert(10);
-		System.out.println(l);
+		//System.out.println(l);
 		l.insert(5, neun); // nach eins einf�gen
-		System.out.println(l);
+		//System.out.println(l);
 		l.remove(neun); // Nachfolger von eins l�schen
 		System.out.println(l);
 
@@ -222,7 +224,7 @@ public class ListeL<I extends Comparable<I>> {
 		l.sort2();
 		System.out.println(l);
 
-		l.versetzeElement(0, 5);
+		l.versetzeElement(0, 6);
 		System.out.println(l);
 
 	}
