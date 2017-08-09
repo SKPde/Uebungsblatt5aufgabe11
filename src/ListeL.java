@@ -88,9 +88,13 @@ public class ListeL<I extends Comparable<I>> {
 	}
 
 	public void versetzeElement(int von, int nach) { // ----------------------------------->> versetzt von nach
-
-		ElementL<I> temp1 = get(von);
 		int templange = length();
+		ElementL<I> temp1 = get(von);
+		ElementL<I> temp2 = null;
+		if (nach < templange - 1) {
+			temp2 = get(nach+1);
+		}
+		
 		// this.insert(temp1.inhalt, get(nach-1));
 		remove(get(von - 1));
 		if (nach > 0) {
@@ -99,9 +103,8 @@ public class ListeL<I extends Comparable<I>> {
 			head = temp1;
 		}
 
-		if (nach >= templange - 1) {
-			temp1.next = null;
-		}
+			temp1.next = temp2;
+
 
 	}
 
@@ -219,7 +222,7 @@ public class ListeL<I extends Comparable<I>> {
 		l.sort2();
 		System.out.println(l);
 
-		l.versetzeElement(2, 7);
+		l.versetzeElement(0, 5);
 		System.out.println(l);
 
 	}
