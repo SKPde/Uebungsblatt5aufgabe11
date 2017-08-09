@@ -20,7 +20,8 @@ public class ListeL<I extends Comparable<I>> {
 		head = new ElementL<I>(o);
 	}
 
-	public int find1(I o) { // -------------------->> Eigene Methode zum Aufinden eines Bestimmten Wertes
+	public int find1(I o) { // ------------------------->> Eigene Methode zum Aufinden eines Bestimmten
+							// Wertes
 							// (Übungsblatt 5 aufgabe 11)
 
 		int ausgabe = -2;
@@ -42,28 +43,36 @@ public class ListeL<I extends Comparable<I>> {
 	}
 
 	public void sort1() { // ----------------------------------------->> Selectionsort Methode
-							// (Übungsblatt 5 Aufgabe 12)
 
-	}
-	
-	public void tauschen(int index1, int index2) { //--------------------------------------->> tauscht zwei inhaltswerte der Liste
+		int minimumindex = 0;
+
+		for (int count = 0; count < length(); count++) {
+			minimumindex = getMinimum(count);
+			tauschen(count, minimumindex);
+		}
+	} // (Übungsblatt 5 Aufgabe 12)
+
+
+
+	public void tauschen(int index1, int index2) { // --------------------------------------->> tauscht zwei
+													// inhaltswerte der Liste
 		ElementL<I> temp1 = new ElementL<I>(get(index1).inhalt);
 		ElementL<I> temp2 = new ElementL<I>(get(index2).inhalt);
 		get(index1).inhalt = temp2.inhalt;
 		get(index2).inhalt = temp1.inhalt;
-		
+
 	}
-	
-	public int getMinimum(int von){	// ------------------------------->> gibt Index des Minimalen Wertes
+
+	public int getMinimum(int von) { // ------------------------------->> gibt Index des Minimalen Wertes
 		ElementL<I> temp = head;
 		int minimum = von;
-		
-		for(int x = von+1; x < length(); x++) {
-			if(get(minimum).inhalt.compareTo(get(x).inhalt) > 0) {
+
+		for (int x = von + 1; x < length(); x++) {
+			if (get(minimum).inhalt.compareTo(get(x).inhalt) > 0) {
 				minimum = x;
 			}
 		}
-		
+
 		return minimum;
 	}
 
@@ -167,12 +176,7 @@ public class ListeL<I extends Comparable<I>> {
 
 		l.sort1();
 		System.out.println(l);
-		System.out.println(l.length());
-		System.out.println(l.get(3).inhalt);
-		System.out.println(l.getMinimum(0));
-		
-		l.tauschen(2, 6);
-		System.out.println(l);
+
 	}
 
 }
