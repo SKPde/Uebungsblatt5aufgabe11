@@ -50,8 +50,21 @@ public class ListeL<I extends Comparable<I>> {
 			minimumindex = getMinimum(count);
 			tauschen(count, minimumindex);
 		}
-	} // (Übungsblatt 5 Aufgabe 12)
-
+	} 																	// (Übungsblatt 5 Aufgabe 12)
+	
+	public void sort2() { //-------------------------------------->> BubbleSort Methode
+		int maxindex = length();
+		
+		while(maxindex >1) {
+			for(int x = 0; x < maxindex-1; x++) {
+				if(get(x).inhalt.compareTo(get(x+1).inhalt) > 0) {
+					tauschen(x,x+1);
+				}
+			}
+			maxindex--;
+		}
+		
+	}					//Übungsblatt 5 Aufgabe 13
 
 
 	public void tauschen(int index1, int index2) { // --------------------------------------->> tauscht zwei
@@ -174,7 +187,7 @@ public class ListeL<I extends Comparable<I>> {
 			System.out.println("Nicht verfügbar!");
 		}
 
-		l.sort1();
+		l.sort2();
 		System.out.println(l);
 
 	}
