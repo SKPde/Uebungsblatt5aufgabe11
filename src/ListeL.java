@@ -50,29 +50,33 @@ public class ListeL<I extends Comparable<I>> {
 			minimumindex = getMinimum(count);
 			tauschen(count, minimumindex);
 		}
-	} 																	// (Übungsblatt 5 Aufgabe 12)
-	
-	public void sort2() { //-------------------------------------->> BubbleSort Methode
+	} // (Übungsblatt 5 Aufgabe 12)
+
+	public void sort2() { // -------------------------------------->> BubbleSort Methode
 		int maxindex = length();
-		
-		while(maxindex >1) {
-			for(int x = 0; x < maxindex-1; x++) {
-				if(get(x).inhalt.compareTo(get(x+1).inhalt) > 0) {
-					tauschen(x,x+1);
+
+		while (maxindex > 1) {
+			for (int x = 0; x < maxindex - 1; x++) {
+				if (get(x).inhalt.compareTo(get(x + 1).inhalt) > 0) {
+					tauschen(x, x + 1);
 				}
 			}
 			maxindex--;
 		}
-		
-	}					//Übungsblatt 5 Aufgabe 13
-	
-	public void sort3() { //-------------------------------------->> Insertionssort
-		
-		
-		
-		
-	} //Übungsblatt 5 Aufgabe 14
 
+	} // Übungsblatt 5 Aufgabe 13
+
+	public void sort3() { // -------------------------------------->> Insertionssort
+
+		int tempstart = 0;
+		while (tempstart < length() - 2) {
+			for (int x = tempstart; x < length() - 1; x++) {
+
+			}
+			tempstart++;
+		}
+
+	} // Übungsblatt 5 Aufgabe 14
 
 	public void tauschen(int index1, int index2) { // --------------------------------------->> tauscht zwei
 													// inhaltswerte der Liste
@@ -80,6 +84,24 @@ public class ListeL<I extends Comparable<I>> {
 		ElementL<I> temp2 = new ElementL<I>(get(index2).inhalt);
 		get(index1).inhalt = temp2.inhalt;
 		get(index2).inhalt = temp1.inhalt;
+
+	}
+
+	public void versetzeElement(int von, int nach) { // ----------------------------------->> versetzt von nach
+
+		ElementL<I> temp1 = get(von);
+		int templange = length();
+		// this.insert(temp1.inhalt, get(nach-1));
+		remove(get(von - 1));
+		if (nach > 0) {
+			get(nach - 1).next = temp1;
+		} else {
+			head = temp1;
+		}
+
+		if (nach >= templange - 1) {
+			temp1.next = null;
+		}
 
 	}
 
@@ -195,6 +217,9 @@ public class ListeL<I extends Comparable<I>> {
 		}
 
 		l.sort2();
+		System.out.println(l);
+
+		l.versetzeElement(2, 7);
 		System.out.println(l);
 
 	}
