@@ -45,6 +45,19 @@ public class ListeL<I extends Comparable<I>> {
 							// (Übungsblatt 5 Aufgabe 12)
 
 	}
+	
+	public int getMinimum(int von){	// ------------------------------->> gibt Index des Minimalen Wertes
+		ElementL<I> temp = head;
+		int minimum = von;
+		
+		for(int x = von+1; x < length(); x++) {
+			if(get(minimum).inhalt.compareTo(get(x).inhalt) > 0) {
+				minimum = x;
+			}
+		}
+		
+		return minimum;
+	}
 
 	public ElementL<I> get(int index) { // ---------------------------->> Gibt Wert an bestimmtem Index
 		ElementL<I> temp = null;
@@ -123,18 +136,18 @@ public class ListeL<I extends Comparable<I>> {
 
 	public static void main(String[] args) {
 		ListeL<Integer> l = new ListeL<Integer>();
-		l.insert(0);
-		ElementL<Integer> eins = l.insert(new Integer(1));
+		l.insert(99);
+		ElementL<Integer> neun = l.insert(new Integer(9));
 		l.insert(3);
 		l.insert(45);
 		l.insert(12);
-		l.insert(18);
+		l.insert(4);
 		l.insert(97);
-		l.insert(67);
+		l.insert(10);
 		System.out.println(l);
-		l.insert(2, eins); // nach eins einf�gen
+		l.insert(5, neun); // nach eins einf�gen
 		System.out.println(l);
-		l.remove(eins); // Nachfolger von eins l�schen
+		l.remove(neun); // Nachfolger von eins l�schen
 		System.out.println(l);
 
 		int test = l.find1(97);
@@ -148,6 +161,7 @@ public class ListeL<I extends Comparable<I>> {
 		System.out.println(l);
 		System.out.println(l.length());
 		System.out.println(l.get(3).inhalt);
+		System.out.println(l.getMinimum(0));
 	}
 
 }
